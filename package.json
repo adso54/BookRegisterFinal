@@ -1,0 +1,17 @@
+{
+  "name": "bookregister_api",
+  "version": "1.0.0",
+  "description": "API for BookRegister App",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Kamil Danielski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
