@@ -5,15 +5,18 @@ const bodyParser = require('body-parser');
 const typeRoutes = require('./routes/type');
 const authorRoutes = require('./routes/author');
 const indexRoutes = require('./routes/index');
+const bookRoutes = require('./routes/book');
 
 // App config
 const app = express();
 app.use(bodyParser.json());
 
 // Routes Config:
-app.use( '/type', typeRoutes);
-app.use( '/author', authorRoutes);
-app.use( '/', indexRoutes);
+app.use('/', indexRoutes);
+app.use('/type', typeRoutes);
+app.use('/author', authorRoutes);
+app.use('/book', bookRoutes);
+
 
 
 process.env.PORT = 8080;

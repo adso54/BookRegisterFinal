@@ -3,10 +3,10 @@ const { db } = require('./config');
 
 const addType  =  (params)  =>{
     return new Promise((resolve, reject) =>{
-        const {Description, Type} = params;
+        const {description, type} = params;
         db('type').insert({
-            type: Type,
-            description: Description
+            type: type,
+            description: description
         })
         .returning('*')
         .then(createdType => {

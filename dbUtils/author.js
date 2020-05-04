@@ -3,14 +3,14 @@ const { db } = require('./config');
 const addAuthor = (params) => {
     return new Promise((resolve, reject) => {
 
-        const { CreateDate = new Date, CreateUser, FirstName, LastName, Description} = params;
+        const { createDate = new Date,createUser, firstName, lastName, description} = params;
     
         db('author').insert({
-            create_date: CreateDate,
-            create_user: CreateUser,
-            first_name: FirstName,
-            last_name: LastName,
-            description: Description
+            create_date: createDate,
+            create_user: createUser,
+            first_name: firstName,
+            last_name: lastName,
+            description: description
         })
         .returning('*')
         .then(createdAuthor => {
