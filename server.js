@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // Importing routers
 const typeRoutes = require('./routes/type');
@@ -10,6 +11,7 @@ const bookRoutes = require('./routes/book');
 // App config
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 // Routes Config:
 app.use('/user', indexRoutes);

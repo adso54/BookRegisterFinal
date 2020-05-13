@@ -15,16 +15,16 @@ const register = (params) =>{
                 create_date: createDate
             })
             .into('user')
-            .returning('id')
-            .then(userId => {
+            .returning('*')
+            .then(user => {
                 return trx
                     .insert({
-                        user_id: Number(userId),
+                        user_id: Number(user[0].id),
                         password: hash
                     })
                     .into('login')
-                    .returning('*')
-                    .then(() => resolve(userId))
+                    .returning('id')
+                    .then(() => resolve(user[0]))
                     .catch(err => reject(err))                   
             }) 
             .then(trx.commit)
