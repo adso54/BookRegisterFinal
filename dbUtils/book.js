@@ -1,7 +1,6 @@
 const { db } = require('./config');
 
 
-
 const addBook = (params) =>{
     return new Promise((resolve, reject) =>{
         const {createDate, createUser, title, description, image} = params;
@@ -13,8 +12,8 @@ const addBook = (params) =>{
             description: description,
             image: image
         })
-        .returning('*')
-        .then(createdBook => {resolve(createdBook)})
+        .returning('id')
+        .then(createdBook => {resolve(createdBook[0])})
         .catch(err=>reject(err))
     })
 }

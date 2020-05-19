@@ -14,7 +14,7 @@ const addAuthor = (params) => {
         })
         .returning('*')
         .then(createdAuthor => {
-            return resolve(createdAuthor);
+            return resolve(createdAuthor[0].id);
         })
         .catch(err => reject(err))
     })
