@@ -18,6 +18,15 @@ const addBook = (params) =>{
     })
 }
 
+const getAllBooks =(params) => {
+    return new Promise((resolve, reject) => {
+        db.select('*').from('book')
+        .then(books => resolve(books))
+        .catch(err=>reject(err))
+    })
+}
+
 module.exports = {dbBook:{
-    addBook: addBook
+    addBook: addBook,
+    getAllBooks: getAllBooks
 }}

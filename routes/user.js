@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 const {dbUser} = require('../dbUtils/user');
 
-router.get('/getBooks', (req, res) => {
-    dbUser.getAllBooks(req.body)
+router.get('/:userId/books', (req, res) => {
+    dbUser.getAllBooks(req.params)
     .then(allBooks => {res.json(allBooks)})
     .catch(err=>res.json(err))
 })

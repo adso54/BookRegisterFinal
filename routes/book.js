@@ -9,4 +9,10 @@ router.post('/add', (req, res) => {
    .catch((err) =>res.json(err))
 })
 
+router.get('/', (req, res) => {
+   dbBook.getAllBooks()
+   .then((books) => res.json(books))
+   .catch((err) =>res.json(err))
+})
+
 module.exports = router;
